@@ -1,14 +1,18 @@
 (kicad_sch
-	(version 20231120)
+	(version 20250114)
 	(generator "eeschema")
-	(generator_version "8.0")
+	(generator_version "9.0")
 	(uuid "d1c79bbd-6292-440e-872b-2f01d7d49e8e")
 	(paper "A4")
 	(lib_symbols
 		(symbol "Device:C_Small"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0.254) hide)
+				(offset 0.254)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -78,10 +82,10 @@
 			(symbol "C_Small_0_1"
 				(polyline
 					(pts
-						(xy -1.524 -0.508) (xy 1.524 -0.508)
+						(xy -1.524 0.508) (xy 1.524 0.508)
 					)
 					(stroke
-						(width 0.3302)
+						(width 0.3048)
 						(type default)
 					)
 					(fill
@@ -90,10 +94,10 @@
 				)
 				(polyline
 					(pts
-						(xy -1.524 0.508) (xy 1.524 0.508)
+						(xy -1.524 -0.508) (xy 1.524 -0.508)
 					)
 					(stroke
-						(width 0.3048)
+						(width 0.3302)
 						(type default)
 					)
 					(fill
@@ -139,12 +143,17 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "power:GND"
 			(power)
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0) hide)
+				(offset 0)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -235,6 +244,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "tolvds:SN65LVDS1DBVR"
 			(pin_names
@@ -317,18 +327,6 @@
 			(symbol "SN65LVDS1DBVR_0_1"
 				(polyline
 					(pts
-						(xy -12.7 -7.62) (xy 12.7 -7.62)
-					)
-					(stroke
-						(width 0.1016)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
 						(xy -12.7 7.62) (xy -12.7 -7.62)
 					)
 					(stroke
@@ -341,7 +339,7 @@
 				)
 				(polyline
 					(pts
-						(xy 12.7 -7.62) (xy 12.7 7.62)
+						(xy -12.7 -7.62) (xy 12.7 -7.62)
 					)
 					(stroke
 						(width 0.1016)
@@ -354,6 +352,18 @@
 				(polyline
 					(pts
 						(xy 12.7 7.62) (xy -12.7 7.62)
+					)
+					(stroke
+						(width 0.1016)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 12.7 -7.62) (xy 12.7 7.62)
 					)
 					(stroke
 						(width 0.1016)
@@ -381,35 +391,17 @@
 						)
 					)
 				)
-				(pin power_in line
-					(at 17.78 -5.08 180)
+				(pin input line
+					(at -17.78 -5.08 0)
 					(length 5.08)
-					(name "GND"
+					(name "D"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin output line
-					(at 17.78 0 180)
-					(length 5.08)
-					(name "Z"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
+					(number "5"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -435,17 +427,35 @@
 						)
 					)
 				)
-				(pin input line
-					(at -17.78 -5.08 0)
+				(pin output line
+					(at 17.78 0 180)
 					(length 5.08)
-					(name "D"
+					(name "Z"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "5"
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 17.78 -5.08 180)
+					(length 5.08)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -454,7 +464,28 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
+	)
+	(text "These are not the decoupling caps recommmended by the spec sheet -- says it need a 0.1uF and\na 0.001uF polarized capacitor. May need to be AC coupled?"
+		(exclude_from_sim no)
+		(at 170.942 66.548 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "9f0490b7-aef1-4f9c-ac2c-be99d9686492")
+	)
+	(text "I'm fairly certain that input signals can be up to 5V."
+		(exclude_from_sim no)
+		(at 147.828 72.39 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "b6199d22-4597-4b36-83d5-1deb504553cd")
 	)
 	(junction
 		(at 106.68 81.28)
@@ -592,26 +623,6 @@
 		)
 		(uuid "9d4ec327-dcbb-4d3f-99be-fb31898a7841")
 	)
-	(text "These are not the decoupling caps recommmended by the spec sheet -- says it need a 0.1uF and\na 0.001uF polarized capacitor. May need to be AC coupled?"
-		(exclude_from_sim no)
-		(at 170.942 66.548 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "9f0490b7-aef1-4f9c-ac2c-be99d9686492")
-	)
-	(text "I'm fairly certain that input signals can be up to 5V."
-		(exclude_from_sim no)
-		(at 147.828 72.39 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "b6199d22-4597-4b36-83d5-1deb504553cd")
-	)
 	(hierarchical_label "LVDS_OUT-"
 		(shape input)
 		(at 177.8 92.71 0)
@@ -747,7 +758,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6828117d-c160-4dd4-90bb-49d90bc99fbf")
-		(property "Reference" "U16"
+		(property "Reference" "U14"
 			(at 133.35 80.01 0)
 			(effects
 				(font

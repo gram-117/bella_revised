@@ -1,7 +1,7 @@
 (kicad_sch
-	(version 20231120)
+	(version 20250114)
 	(generator "eeschema")
-	(generator_version "8.0")
+	(generator_version "9.0")
 	(uuid "18a60cc4-caf2-4494-a308-900e704f7f35")
 	(paper "A4")
 	(lib_symbols
@@ -86,6 +86,18 @@
 			(symbol "74LVC1G123DCTRE4_0_1"
 				(polyline
 					(pts
+						(xy -15.24 12.7) (xy -15.24 -12.7)
+					)
+					(stroke
+						(width 0.1016)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
 						(xy -15.24 -12.7) (xy 15.24 -12.7)
 					)
 					(stroke
@@ -98,7 +110,7 @@
 				)
 				(polyline
 					(pts
-						(xy -15.24 12.7) (xy -15.24 -12.7)
+						(xy 15.24 12.7) (xy -15.24 12.7)
 					)
 					(stroke
 						(width 0.1016)
@@ -120,16 +132,22 @@
 						(type none)
 					)
 				)
-				(polyline
-					(pts
-						(xy 15.24 12.7) (xy -15.24 12.7)
+				(pin power_in line
+					(at -20.32 7.62 0)
+					(length 5.08)
+					(name "VCC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
 					)
-					(stroke
-						(width 0.1016)
-						(type default)
-					)
-					(fill
-						(type none)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
 					)
 				)
 				(pin input line
@@ -179,24 +197,6 @@
 						)
 					)
 					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 20.32 -7.62 180)
-					(length 5.08)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -259,16 +259,16 @@
 					)
 				)
 				(pin power_in line
-					(at -20.32 7.62 0)
+					(at 20.32 -7.62 180)
 					(length 5.08)
-					(name "VCC"
+					(name "GND"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "8"
+					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -277,11 +277,16 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Device:C_Small"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0.254) hide)
+				(offset 0.254)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -351,10 +356,10 @@
 			(symbol "C_Small_0_1"
 				(polyline
 					(pts
-						(xy -1.524 -0.508) (xy 1.524 -0.508)
+						(xy -1.524 0.508) (xy 1.524 0.508)
 					)
 					(stroke
-						(width 0.3302)
+						(width 0.3048)
 						(type default)
 					)
 					(fill
@@ -363,10 +368,10 @@
 				)
 				(polyline
 					(pts
-						(xy -1.524 0.508) (xy 1.524 0.508)
+						(xy -1.524 -0.508) (xy 1.524 -0.508)
 					)
 					(stroke
-						(width 0.3048)
+						(width 0.3302)
 						(type default)
 					)
 					(fill
@@ -412,11 +417,16 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Device:R_Small"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0.254) hide)
+				(offset 0.254)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -534,12 +544,17 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "power:GND"
 			(power)
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0) hide)
+				(offset 0)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -630,7 +645,48 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
+	)
+	(text "adjust the values of these later for what is coming out of the comparator"
+		(exclude_from_sim no)
+		(at 175.26 39.116 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "0255d8ff-b81c-4c65-80ca-6319d52a52c0")
+	)
+	(text "This one-shot is configured to trigger on the rising edge of the input pulse. We want the \noutput pulse to be around 150ns long. As specified by the spec sheet, C = 28pF and R = 2kOhm for a\n Vcc = +5V. If this pulse needs to be longer, the supply voltage needs to be smaller. "
+		(exclude_from_sim no)
+		(at 163.068 112.268 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "913998d3-e536-469b-8188-5260fd115e9f")
+	)
+	(text "is this wired correctly -- hysteresis?\n"
+		(exclude_from_sim no)
+		(at 156.972 42.672 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "976ea642-87b3-4919-9f96-827dc4dad047")
+	)
+	(text "to lvds"
+		(exclude_from_sim no)
+		(at 226.314 71.12 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "a0ab0942-ad06-4c4c-922b-a6213c6637f9")
 	)
 	(junction
 		(at 123.19 86.36)
@@ -844,46 +900,6 @@
 		)
 		(uuid "f1dc1070-499f-4dae-be57-f48d15c56fea")
 	)
-	(text "adjust the values of these later for what is coming out of the comparator"
-		(exclude_from_sim no)
-		(at 175.26 39.116 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "0255d8ff-b81c-4c65-80ca-6319d52a52c0")
-	)
-	(text "This one-shot is configured to trigger on the rising edge of the input pulse. We want the \noutput pulse to be around 150ns long. As specified by the spec sheet, C = 28pF and R = 2kOhm for a\n Vcc = +5V. If this pulse needs to be longer, the supply voltage needs to be smaller. "
-		(exclude_from_sim no)
-		(at 163.068 112.268 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "913998d3-e536-469b-8188-5260fd115e9f")
-	)
-	(text "is this wired correctly -- hysteresis?\n"
-		(exclude_from_sim no)
-		(at 156.972 42.672 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "976ea642-87b3-4919-9f96-827dc4dad047")
-	)
-	(text "to lvds"
-		(exclude_from_sim no)
-		(at 226.314 71.12 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "a0ab0942-ad06-4c4c-922b-a6213c6637f9")
-	)
 	(hierarchical_label "MONO_IN"
 		(shape input)
 		(at 101.6 60.96 180)
@@ -960,7 +976,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "615055e5-0291-451a-bd65-c8baea9a5feb")
-		(property "Reference" "C54"
+		(property "Reference" "C52"
 			(at 176.5363 46.99 90)
 			(effects
 				(font
@@ -1032,7 +1048,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "64031f3a-910c-40f2-80c3-ea6738036925")
-		(property "Reference" "U15"
+		(property "Reference" "U13"
 			(at 148.59 60.96 0)
 			(effects
 				(font
@@ -1198,7 +1214,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e7e3f5ec-32cb-4e06-9523-4c5dde073b6f")
-		(property "Reference" "R33"
+		(property "Reference" "R32"
 			(at 147.32 48.26 90)
 			(effects
 				(font

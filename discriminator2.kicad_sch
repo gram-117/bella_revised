@@ -1,7 +1,7 @@
 (kicad_sch
-	(version 20231120)
+	(version 20250114)
 	(generator "eeschema")
-	(generator_version "8.0")
+	(generator_version "9.0")
 	(uuid "bf61e7a0-b396-45d0-b2ef-42a98e717827")
 	(paper "A4")
 	(lib_symbols
@@ -86,18 +86,6 @@
 			(symbol "ADCMP601BKSZ-R2_0_1"
 				(polyline
 					(pts
-						(xy 7.62 -10.16) (xy 63.5 -10.16)
-					)
-					(stroke
-						(width 0.127)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
 						(xy 7.62 5.08) (xy 7.62 -10.16)
 					)
 					(stroke
@@ -110,7 +98,7 @@
 				)
 				(polyline
 					(pts
-						(xy 63.5 -10.16) (xy 63.5 5.08)
+						(xy 7.62 -10.16) (xy 63.5 -10.16)
 					)
 					(stroke
 						(width 0.127)
@@ -123,6 +111,18 @@
 				(polyline
 					(pts
 						(xy 63.5 5.08) (xy 7.62 5.08)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 63.5 -10.16) (xy 63.5 5.08)
 					)
 					(stroke
 						(width 0.127)
@@ -186,17 +186,17 @@
 						)
 					)
 				)
-				(pin input line
-					(at 71.12 -5.08 180)
+				(pin power_in line
+					(at 71.12 0 180)
 					(length 7.62)
-					(name "VN"
+					(name "VCCI/VCCO"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "4"
+					(number "6"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -222,17 +222,17 @@
 						)
 					)
 				)
-				(pin power_in line
-					(at 71.12 0 180)
+				(pin input line
+					(at 71.12 -5.08 180)
 					(length 7.62)
-					(name "VCCI/VCCO"
+					(name "VN"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "6"
+					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -241,11 +241,16 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Device:C_Small"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0.254) hide)
+				(offset 0.254)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -315,10 +320,10 @@
 			(symbol "C_Small_0_1"
 				(polyline
 					(pts
-						(xy -1.524 -0.508) (xy 1.524 -0.508)
+						(xy -1.524 0.508) (xy 1.524 0.508)
 					)
 					(stroke
-						(width 0.3302)
+						(width 0.3048)
 						(type default)
 					)
 					(fill
@@ -327,10 +332,10 @@
 				)
 				(polyline
 					(pts
-						(xy -1.524 0.508) (xy 1.524 0.508)
+						(xy -1.524 -0.508) (xy 1.524 -0.508)
 					)
 					(stroke
-						(width 0.3048)
+						(width 0.3302)
 						(type default)
 					)
 					(fill
@@ -376,10 +381,13 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Device:R_Potentiometer_Small"
 			(pin_names
-				(offset 1.016) hide)
+				(offset 1.016)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -445,6 +453,17 @@
 				)
 			)
 			(symbol "R_Potentiometer_Small_0_1"
+				(rectangle
+					(start 0.762 1.8034)
+					(end -0.762 -1.8034)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
 				(polyline
 					(pts
 						(xy 0.889 0) (xy 0.635 0) (xy 1.651 0.381) (xy 1.651 -0.381) (xy 0.635 0) (xy 0.889 0)
@@ -455,17 +474,6 @@
 					)
 					(fill
 						(type outline)
-					)
-				)
-				(rectangle
-					(start 0.762 1.8034)
-					(end -0.762 -1.8034)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
 					)
 				)
 			)
@@ -481,24 +489,6 @@
 						)
 					)
 					(number "1"
-						(effects
-							(font
-								(size 0.635 0.635)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 0 180)
-					(length 0.9906)
-					(name "2"
-						(effects
-							(font
-								(size 0.635 0.635)
-							)
-						)
-					)
-					(number "2"
 						(effects
 							(font
 								(size 0.635 0.635)
@@ -524,12 +514,35 @@
 						)
 					)
 				)
+				(pin passive line
+					(at 2.54 0 180)
+					(length 0.9906)
+					(name "2"
+						(effects
+							(font
+								(size 0.635 0.635)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 0.635 0.635)
+							)
+						)
+					)
+				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Device:R_Small"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0.254) hide)
+				(offset 0.254)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -647,12 +660,17 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "power:GND"
 			(power)
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0) hide)
+				(offset 0)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -743,7 +761,48 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
+	)
+	(text "Minimum pulse width of 4.5ns so in theory could have the bandwidth necessary over the amplifier stage\nif resistors were switched out and be able to reliably trigger. "
+		(exclude_from_sim no)
+		(at 135.128 38.608 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "0c67ad71-0ac0-431c-96b5-5d9c0ed8d6bb")
+	)
+	(text "does not recommend decoupling caps for this \ngives hysteresis of around 50mV, do we need hysterisis one shot has schmitt trigger inputs"
+		(exclude_from_sim no)
+		(at 256.032 58.42 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "8a6922bd-9874-46a7-9ec1-08e54a5655e9")
+	)
+	(text "These resistor values are way too big. Placeholder "
+		(exclude_from_sim no)
+		(at 234.188 84.582 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "ce29f036-b955-4d27-9aa3-76891d547f8e")
+	)
+	(text "hysteresis\n"
+		(exclude_from_sim no)
+		(at 153.162 48.006 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "ed895aa9-04d1-4f1f-8703-57a05ca7f201")
 	)
 	(junction
 		(at 195.58 54.61)
@@ -941,46 +1000,6 @@
 		)
 		(uuid "fd2647e0-771e-4e17-9e8e-d404ca4fbf2a")
 	)
-	(text "Minimum pulse width of 4.5ns so in theory could have the bandwidth necessary over the amplifier stage\nif resistors were switched out and be able to reliably trigger. "
-		(exclude_from_sim no)
-		(at 135.128 38.608 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "0c67ad71-0ac0-431c-96b5-5d9c0ed8d6bb")
-	)
-	(text "does not recommend decoupling caps for this \ngives hysteresis of around 50mV, do we need hysterisis one shot has schmitt trigger inputs"
-		(exclude_from_sim no)
-		(at 256.032 58.42 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "8a6922bd-9874-46a7-9ec1-08e54a5655e9")
-	)
-	(text "These resistor values are way too big. Placeholder "
-		(exclude_from_sim no)
-		(at 234.188 84.582 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "ce29f036-b955-4d27-9aa3-76891d547f8e")
-	)
-	(text "hysteresis\n"
-		(exclude_from_sim no)
-		(at 153.162 48.006 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "ed895aa9-04d1-4f1f-8703-57a05ca7f201")
-	)
 	(hierarchical_label "DISC_IN"
 		(shape input)
 		(at 90.17 67.31 180)
@@ -1046,7 +1065,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2fc8b73b-ee0f-4e55-a757-e10579686595")
-		(property "Reference" "R14"
+		(property "Reference" "R30"
 			(at 203.2 59.69 90)
 			(effects
 				(font
@@ -1204,7 +1223,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6b2354c0-91ef-4bf3-b0fe-3445cffdb621")
-		(property "Reference" "#PWR052"
+		(property "Reference" "#PWR081"
 			(at 189.23 40.64 0)
 			(effects
 				(font
@@ -1274,7 +1293,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7824a2c5-db3a-4f7e-9459-f4c02b36c8c8")
-		(property "Reference" "#PWR050"
+		(property "Reference" "#PWR082"
 			(at 201.93 40.64 0)
 			(effects
 				(font
@@ -1414,7 +1433,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8038f0a1-8f1b-44b9-8ffe-bd5363aebb92")
-		(property "Reference" "C19"
+		(property "Reference" "C48"
 			(at 186.69 52.0638 0)
 			(effects
 				(font
@@ -1487,7 +1506,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "85877a20-86f1-48d0-936a-93430b8ceaf5")
-		(property "Reference" "C18"
+		(property "Reference" "C49"
 			(at 199.39 52.0638 0)
 			(effects
 				(font
@@ -1561,7 +1580,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "96b8cbd0-add4-457b-a49d-814901934920")
-		(property "Reference" "#PWR021"
+		(property "Reference" "#PWR083"
 			(at 204.47 95.25 0)
 			(effects
 				(font

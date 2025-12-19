@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "lm3940Library")(type "KiCad")(uri "${KIPRJMOD}/Libraries/lm3940Library.pretty")(options "")(descr ""))
+)
